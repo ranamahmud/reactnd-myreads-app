@@ -14,24 +14,14 @@ function App() {
       <Switch>
         <Route exact path='/' render={() => (
           <ListBooks
-          // contacts={this.state.contacts}
-          // onDeleteContact={this.removeContact}
+
           />
         )} />
         <Route exact path='/search' render={() => (
           <Search
-          // contacts={this.state.contacts}
-          // onDeleteContact={this.removeContact}
           />
         )} />
-        {/* <Route path='/create' render={({ history }) => (
-        <CreateContact
-          onCreateContact={(contact) => {
-            this.createContact(contact)
-            history.push('/')
-          }}
-        />
-      )} /> */}
+
       </Switch>
     </Router>
   );
