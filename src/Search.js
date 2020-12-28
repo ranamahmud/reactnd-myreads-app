@@ -12,18 +12,24 @@ class Search extends Component {
     }
     searchBook = e => {
         const query = e.currentTarget.value;
-        console.log(query);
         BooksAPI.search(query)
             .then(res => {
                 if (res.length > 0) {
-                    console.log(res);
                     this.setState({ resultBooks: res })
                 }
             })
     }
+
+    changeSearchShelf = (e, book) => {
+        const shelf = e.target.value;
+        BooksAPI.update(book, shelf)
+            .then(res => {
+                this.setState({ res })
+            });
+
+    }
     render() {
         const { resultBooks } = this.state;
-        const { changeShelf } = this.props;
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -47,7 +53,7 @@ class Search extends Component {
                         {
                             (resultBooks.length > 0) && resultBooks.map(book =>
                                 <li key={book.id}>
-                                    <Book book={book} changeShelf={changeShelf} />
+                                    <Book book={book} changeShelf={this.changeSearchShelf} />
                                 </li>
                             )
                         }

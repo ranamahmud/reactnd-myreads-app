@@ -26,7 +26,6 @@ class ListBooks extends Component {
         const shelf = e.target.value;
         BooksAPI.update(book, shelf)
             .then(res => {
-                console.log(res);
                 this.setState({ res })
             });
 
@@ -47,9 +46,10 @@ class ListBooks extends Component {
                     </div>
                 </div>
                 <div className="open-search">
+
                     <Link to="/search">Add a book</Link>
                 </div>
-            </div>
+            </div >
         );
     }
 }
