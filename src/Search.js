@@ -16,6 +16,7 @@ class Search extends Component {
             .then(res => {
                 if (Array.isArray(res) && res.length > 0) {
                     this.setState({ resultBooks: res })
+                    console.log(res);
                 }
             })
     }
@@ -52,14 +53,15 @@ class Search extends Component {
 
                         {
                             (resultBooks.length > 0) && resultBooks.map(book =>
-                                <li key={book.id}>
+
+                                <li li key={book.id} >
                                     <Book book={book} changeShelf={this.changeSearchShelf} />
                                 </li>
                             )
                         }
                     </ol>
                 </div>
-            </div>
+            </div >
         );
     }
 }
