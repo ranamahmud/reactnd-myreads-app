@@ -14,7 +14,7 @@ class Search extends Component {
         const query = e.currentTarget.value;
         BooksAPI.search(query)
             .then(res => {
-                if (res.length > 0) {
+                if (Array.isArray(res) && res.length > 0) {
                     this.setState({ resultBooks: res })
                 }
             })

@@ -16,12 +16,6 @@ class ListBooks extends Component {
             }));
     }
 
-    componentWillUpdate() {
-        BooksAPI.getAll()
-            .then(books => this.setState({
-                books
-            }));
-    }
     changeShelf = (e, book) => {
         const shelf = e.target.value;
         BooksAPI.update(book, shelf)
