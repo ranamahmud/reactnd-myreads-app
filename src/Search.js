@@ -16,7 +16,6 @@ class Search extends Component {
             .then(res => {
                 if (Array.isArray(res) && res.length > 0) {
                     this.setState({ resultBooks: res })
-                    console.log(res);
                 }
             })
     }
