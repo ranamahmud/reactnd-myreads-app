@@ -9,23 +9,23 @@ class ListBooks extends Component {
             books: []
         };
     }
-    componentDidMount() {
+    getBooks() {
         BooksAPI.getAll()
             .then(books => this.setState({
                 books
             }));
     }
+    componentDidMount() {
+        this.getBooks()
+    }
 
     changeShelf = (e, book) => {
         const shelf = e.target.value;
         BooksAPI.update(book, shelf)
-            .then(res => {
-                this.setState({ res })
+            .then(() => {
+                this.getBooks()
             });
-        BooksAPI.getAll()
-            .then(books => this.setState({
-                books
-            }));
+
     }
     render() {
         const books = this.state.books;
