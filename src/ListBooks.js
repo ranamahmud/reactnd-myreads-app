@@ -22,7 +22,10 @@ class ListBooks extends Component {
             .then(res => {
                 this.setState({ res })
             });
-
+        BooksAPI.getAll()
+            .then(books => this.setState({
+                books
+            }));
     }
     render() {
         const books = this.state.books;
